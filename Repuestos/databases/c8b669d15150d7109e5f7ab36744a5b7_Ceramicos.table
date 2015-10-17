@@ -13,14 +13,14 @@ p6
 I3
 sS'sql'
 p7
-S'INTEGER NOT NULL'
+S'CHAR(512) NOT NULL'
 p8
 sS'notnull'
 p9
 I01
 sS'type'
 p10
-S'integer'
+S'string'
 p11
 ssS'cantidad'
 p12
@@ -37,10 +37,11 @@ p14
 sg9
 I01
 sg10
-g11
-ssS'tension'
+S'integer'
 p15
-(dp16
+ssS'tension'
+p16
+(dp17
 g4
 I512
 sg5
@@ -49,14 +50,14 @@ sg6
 I5
 sg7
 S'INTEGER'
-p17
+p18
 sg9
 I00
 sg10
-g11
+g15
 ssS'descripcion'
-p18
-(dp19
+p19
+(dp20
 g4
 I512
 sg5
@@ -65,12 +66,11 @@ sg6
 I2
 sg7
 S'CHAR(512) NOT NULL'
-p20
+p21
 sg9
 I01
 sg10
-S'string'
-p21
+g11
 ssS'medida'
 p22
 (dp23

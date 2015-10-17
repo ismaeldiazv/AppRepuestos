@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<class 'sqlite3.IntegrityError'> Electroliticos.descripcion may not be NULL"
+p3
+sS'layer'
+p4
+S'/home/ismael/Escritorio/web2py/applications/Repuestos/controllers/Condensadores.py'
+p5
+sS'code'
+p6
+S'# -*- coding: utf-8 -*-\n\ndef Ceramicos():\n\n    grid = SQLFORM.grid(db.Ceramicos,details=True,csv=False,editable=True,deletable=True)\n    return dict(grid=grid)\n    \ndef Plastico():\n\n    grid = SQLFORM.grid(db.Plastico,details=True,csv=False,editable=True,deletable=True)\n    return dict(grid=grid)\n    \ndef Lenteja():\n\n    grid = SQLFORM.grid(db.Lenteja,details=True,csv=False,editable=True,deletable=True)\n    return dict(grid=grid)\n    \ndef Electroliticos():\n\n    grid = SQLFORM.grid(db.Electroliticos,details=True,csv=False,editable=True,deletable=True)\n    return dict(grid=grid)\n \n\ndef user():\n    """\n    exposes:\n    http://..../[app]/default/user/login\n    http://..../[app]/default/user/logout\n    http://..../[app]/default/user/register\n    http://..../[app]/default/user/profile\n    http://..../[app]/default/user/retrieve_password\n    http://..../[app]/default/user/change_password\n    http://..../[app]/default/user/manage_users (requires membership in\n    use \n        @auth.requires_membership(\'group name\')\n        @auth.requires_permission(\'read\',\'table name\',record_id)\n    to decorate functions that need access control\n    """\n    return dict(form=auth())\n\n\n@cache.action()\ndef download():\n    """\n    allows downloading of uploaded files\n    http://..../[app]/default/download/[filename]\n    """\n    return response.download(request, db)\n\n\ndef call():\n    """\n    exposes services. for example:\n    http://..../[app]/default/call/jsonrpc\n    decorate with @services.jsonrpc the functions to expose\n    supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv\n    """\n    return service()\n\n\n@auth.requires_login() \ndef api():\n    """\n    this is example of API with access control\n    WEB2PY provides Hypermedia API (Collection+JSON) Experimental\n    """\n    from gluon.contrib.hypermedia import Collection\n    rules = {\n        \'<tablename>\': {\'GET\':{},\'POST\':{},\'PUT\':{},\'DELETE\':{}},\n        }\n    return Collection(db).process(request,response,rules)\n\nresponse._vars=response._caller(Electroliticos)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/home/ismael/Escritorio/web2py/gluon/restricted.py", line 224, in restricted\n    exec ccode in environment\n  File "/home/ismael/Escritorio/web2py/applications/Repuestos/controllers/Condensadores.py", line 73, in <module>\n  File "/home/ismael/Escritorio/web2py/gluon/globals.py", line 392, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/ismael/Escritorio/web2py/applications/Repuestos/controllers/Condensadores.py", line 20, in Electroliticos\n    grid = SQLFORM.grid(db.Electroliticos,details=True,csv=False,editable=True,deletable=True)\n  File "/home/ismael/Escritorio/web2py/gluon/sqlhtml.py", line 2170, in grid\n    onsuccess=oncreate)\n  File "/home/ismael/Escritorio/web2py/gluon/html.py", line 2303, in process\n    self.validate(**kwargs)\n  File "/home/ismael/Escritorio/web2py/gluon/html.py", line 2240, in validate\n    if self.accepts(**kwargs):\n  File "/home/ismael/Escritorio/web2py/gluon/sqlhtml.py", line 1671, in accepts\n    self.vars.id = self.table.insert(**fields)\n  File "/home/ismael/Escritorio/web2py/gluon/dal.py", line 9317, in insert\n    ret =  self._db._adapter.insert(self, self._listify(fields))\n  File "/home/ismael/Escritorio/web2py/gluon/dal.py", line 1361, in insert\n    raise e\nIntegrityError: Electroliticos.descripcion may not be NULL\n'
+p11
+s.

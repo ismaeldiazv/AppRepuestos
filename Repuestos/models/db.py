@@ -115,10 +115,25 @@ db.define_table('Potencia_Disipada',
 		format='%(Valor_Potencia)s'
 		)
 		
+db.define_table('N_Patillas',
+		Field('Numero_Patillas','integer',label="Unidad"),
+		format='%(Numero_Patillas)s'
+		)
+		
+db.define_table('Medida_Frecuencia',
+		Field('Medida','string',label="Unidad"),
+		format='%(Medida)s'
+		)
+		
+db.define_table('Medida_Inductancia',
+		Field('Medida','string',label="Unidad"),
+		format='%(Medida)s'
+		)
+		
 
 db.define_table('Ceramicos',
         Field('descripcion','string',label="Descripción",notnull=True),
-        Field('capacidad','integer',label="Capacidad",notnull=True),
+        Field('capacidad','string',label="Capacidad",notnull=True),
         Field('medida', db.Capacidades,notnull=True),
         Field('tension','integer',label="Tensión Maxima (V)"),
         Field('cantidad','integer',label="Cantidad",notnull=True),        
@@ -127,7 +142,7 @@ db.Ceramicos.id.readable=False
 
 db.define_table('Plastico',
         Field('descripcion','string',label="Descripción",notnull=True),
-        Field('capacidad','integer',label="Capacidad",notnull=True),
+        Field('capacidad','string',label="Capacidad",notnull=True),
         Field('medida', db.Capacidades,notnull=True),
         Field('tension','integer',label="Tensión Maxima (V)"),
         Field('cantidad','integer',label="Cantidad",notnull=True),        
@@ -136,47 +151,119 @@ db.Plastico.id.readable=False
 
 db.define_table('Lenteja',
         Field('descripcion','string',label="Descripción",notnull=True),
-        Field('capacidad','integer',label="Capacidad",notnull=True),
+        Field('capacidad','string',label="Capacidad",notnull=True),
         Field('medida', db.Capacidades,notnull=True),
         Field('tension','integer',label="Tensión Maxima (V)"),
         Field('cantidad','integer',label="Cantidad",notnull=True),        
         )
 db.Lenteja.id.readable=False
 
-db.define_table('Electroliticos',
-        Field('descripcion','string',label="Descripción",notnull=True),
-        Field('capacidad','integer',label="Capacidad",notnull=True),
+db.define_table('Electrolitico',
+        Field('capacidad','string',label="Capacidad",notnull=True),
         Field('medida', db.Capacidades,notnull=True),
         Field('tension','integer',label="Tensión Maxima (V)"),
         Field('cantidad','integer',label="Cantidad",notnull=True),        
         )
-db.Electroliticos.id.readable=False
+db.Electrolitico.id.readable=False
 
 db.define_table('Resistencia',
-		Field('valor','integer',label="Valor"),
-		Field('medida_resistencia',db.Medidas_Resistencia),
-        Field('banda_1',db.Colores_Resistencia),
-        Field('banda_2',db.Colores_Resistencia),
-        Field('banda_3',db.Colores_Resistencia),
-        Field('tolerancia',db.Tolerancia),
-        Field('Potencia',db.Potencia_Disipada),
-        Field('cantidad','integer',label="Cantidad"),        
+		Field('valor','string',label="Valor",notnull=True),
+		Field('medida_resistencia',db.Medidas_Resistencia,notnull=True),
+        Field('banda_1',db.Colores_Resistencia,notnull=True),
+        Field('banda_2',db.Colores_Resistencia,notnull=True),
+        Field('banda_3',db.Colores_Resistencia,notnull=True),
+        Field('tolerancia',db.Tolerancia,notnull=True),
+        Field('Potencia',db.Potencia_Disipada,notnull=True),
+        Field('cantidad','integer',label="Cantidad",notnull=True),        
         )
 db.Resistencia.id.readable=False
 
 db.define_table('Potenciometro',
-		Field('valor','integer',label="Valor"),
-		Field('medida_resistencia',db.Medidas_Resistencia),
-        Field('cantidad','integer',label="Cantidad"),        
+		Field('descripcion','string',label="Descripción",notnull=True),
+		Field('valor','string',label="Valor",notnull=True),
+		Field('medida_resistencia',db.Medidas_Resistencia,notnull=True),
+        Field('cantidad','integer',label="Cantidad",notnull=True),        
         )
 db.Potenciometro.id.readable=False
 
+db.define_table('Trimmer',
+		Field('descripcion','string',label="Descripción",notnull=True),
+		Field('valor','string',label="Valor",notnull=True),
+		Field('medida_resistencia',db.Medidas_Resistencia,notnull=True),
+        Field('cantidad','integer',label="Cantidad",notnull=True),        
+        )
+db.Trimmer.id.readable=False
+
 db.define_table('Transistor',
-		Field('descripcion','string',label="Descripción"),
-		Field('transistor','string',label="Transistor"),
-        Field('datasheet','upload',label="Datasheet"),
-        Field('cantidad','integer',label="Cantidad"),         
+		Field('descripcion','string',label="Descripción",notnull=True),
+        Field('datasheet','upload',label="Datasheet",notnull=False),
+        Field('cantidad','integer',label="Cantidad",notnull=True),         
         )
 db.Transistor.id.readable=False
 
+db.define_table('C_Integrado',
+		Field('descripcion','string',label="Descripción",notnull=True),
+		Field('numero_patillas',db.N_Patillas,notnull=False),
+        Field('datasheet','upload',label="Datasheet",notnull=False),
+        Field('cantidad','integer',label="Cantidad",notnull=True),         
+        )
+db.C_Integrado.id.readable=False
+
+db.define_table('Cristal',
+		Field('descripcion','string',label="Descripción",notnull=True),
+        Field('frecuencia','string',label="Frecuencia",notnull=True),
+        Field('unidad_frecuencia',db.Medida_Frecuencia,notnull=True),
+        Field('cantidad','integer',label="Cantidad",notnull=True),         
+        )
+db.Cristal.id.readable=False
+
+db.define_table('Rectificador',
+		Field('descripcion','string',label="Descripción",notnull=True),
+        Field('datasheet','upload',label="Datasheet",notnull=False),
+        Field('cantidad','integer',label="Cantidad",notnull=True),         
+        )
+db.Rectificador.id.readable=False
+
+db.define_table('Zener',
+		Field('descripcion','string',label="Descripción",notnull=True),
+        Field('datasheet','upload',label="Datasheet",notnull=False),
+        Field('cantidad','integer',label="Cantidad",notnull=True),         
+        )
+db.Zener.id.readable=False
+
+db.define_table('Puente',
+		Field('descripcion','string',label="Descripción",notnull=True),
+        Field('datasheet','upload',label="Datasheet",notnull=False),
+        Field('cantidad','integer',label="Cantidad",notnull=True),         
+        )
+db.Puente.id.readable=False
+
+db.define_table('Bobinas',
+		Field('descripcion','string',label="Descripción"),
+        Field('inductancia','integer',label="Inductancia"),
+        Field('unidad_inductancia',db.Medida_Inductancia),
+        Field('cantidad','integer',label="Cantidad"),         
+        )
+db.Bobinas.id.readable=False
+
+db.define_table('Triac',
+		Field('descripcion','string',label="Descripción",notnull=True),
+        Field('datasheet','upload',label="Datasheet",notnull=True),
+        Field('cantidad','integer',label="Cantidad",notnull=True),         
+        )
+db.Triac.id.readable=False
+
+db.define_table('Diac',
+		Field('descripcion','string',label="Descripción",notnull=True),
+        Field('datasheet','upload',label="Datasheet",notnull=True),
+        Field('cantidad','integer',label="Cantidad",notnull=True),         
+        )
+db.Diac.id.readable=False
+
+db.define_table('Fusible',
+        Field('Corriente','string',label="Corriente Max A",notnull=True),
+        Field('Tension','string',label="Tension Max V",notnull=True),  
+        Field('cantidad','integer',label="Cantidad",notnull=True),       
+        )
+db.Fusible.id.readable=False
 

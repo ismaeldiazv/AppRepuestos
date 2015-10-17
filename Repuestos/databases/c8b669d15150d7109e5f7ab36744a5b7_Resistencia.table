@@ -17,7 +17,7 @@ S'INTEGER REFERENCES Tolerancia (id) ON DELETE CASCADE'
 p8
 sS'notnull'
 p9
-I00
+I01
 sS'type'
 p10
 S'reference Tolerancia'
@@ -32,52 +32,52 @@ I00
 sg6
 I9
 sg7
-S'INTEGER'
+S'INTEGER NOT NULL'
 p14
 sg9
-I00
+I01
 sg10
 S'integer'
 p15
-ssS'medida_resistencia'
+ssS'unidad_resistenc'
 p16
 (dp17
+S'sortable'
+p18
+I3
+sS'sql'
+p19
+S'INTEGER REFERENCES Medidas_Resistencia (id) ON DELETE CASCADE'
+p20
+sS'length'
+p21
+I512
+sS'notnull'
+p22
+I00
+sS'unique'
+p23
+I00
+sS'type'
+p24
+S'reference Medidas_Resistencia'
+p25
+ssS'banda_1'
+p26
+(dp27
 g4
 I512
 sg5
 I00
 sg6
-I3
+I4
 sg7
-S'INTEGER REFERENCES Medidas_Resistencia (id) ON DELETE CASCADE'
-p18
-sg9
-I00
-sg10
-S'reference Medidas_Resistencia'
-p19
-ssS'unidad_resistenc'
-p20
-(dp21
-S'sortable'
-p22
-I3
-sS'sql'
-p23
-S'INTEGER REFERENCES Medidas_Resistencia (id) ON DELETE CASCADE'
-p24
-sS'length'
-p25
-I512
-sS'notnull'
-p26
-I00
-sS'unique'
-p27
-I00
-sS'type'
+S'INTEGER REFERENCES Colores_Resistencia (id) ON DELETE CASCADE'
 p28
-S'reference Medidas_Resistencia'
+sg9
+I01
+sg10
+S'reference Colores_Resistencia'
 p29
 ssS'potencia'
 p30
@@ -92,7 +92,7 @@ sg7
 S'INTEGER REFERENCES Potencia_Disipada (id) ON DELETE CASCADE'
 p32
 sg9
-I00
+I01
 sg10
 S'reference Potencia_Disipada'
 p33
@@ -106,32 +106,33 @@ I00
 sg6
 I2
 sg7
-S'INTEGER'
+S'CHAR(512) NOT NULL'
 p36
 sg9
-I00
+I01
 sg10
-g15
-ssS'banda_1'
+S'string'
 p37
-(dp38
+ssS'medida_resistencia'
+p38
+(dp39
 g4
 I512
 sg5
 I00
 sg6
-I4
+I3
 sg7
-S'INTEGER REFERENCES Colores_Resistencia (id) ON DELETE CASCADE'
-p39
-sg9
-I00
-sg10
-S'reference Colores_Resistencia'
+S'INTEGER REFERENCES Medidas_Resistencia (id) ON DELETE CASCADE'
 p40
-ssS'banda_2'
+sg9
+I01
+sg10
+S'reference Medidas_Resistencia'
 p41
-(dp42
+ssS'banda_2'
+p42
+(dp43
 g4
 I512
 sg5
@@ -140,15 +141,15 @@ sg6
 I5
 sg7
 S'INTEGER REFERENCES Colores_Resistencia (id) ON DELETE CASCADE'
-p43
+p44
 sg9
-I00
+I01
 sg10
 S'reference Colores_Resistencia'
-p44
-ssS'banda_3'
 p45
-(dp46
+ssS'banda_3'
+p46
+(dp47
 g4
 I512
 sg5
@@ -157,15 +158,15 @@ sg6
 I6
 sg7
 S'INTEGER REFERENCES Colores_Resistencia (id) ON DELETE CASCADE'
-p47
+p48
 sg9
-I00
+I01
 sg10
 S'reference Colores_Resistencia'
-p48
-ssS'id'
 p49
-(dp50
+ssS'id'
+p50
+(dp51
 g4
 I512
 sg5
@@ -174,10 +175,10 @@ sg6
 I1
 sg7
 S'INTEGER PRIMARY KEY AUTOINCREMENT'
-p51
+p52
 sg9
 I00
 sg10
 S'id'
-p52
+p53
 ss.

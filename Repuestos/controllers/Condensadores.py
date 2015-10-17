@@ -17,7 +17,7 @@ def Lenteja():
     
 def Electroliticos():
 
-    grid = SQLFORM.grid(db.Electroliticos,details=True,csv=False,editable=True,deletable=True)
+    grid = SQLFORM.grid(db.Electrolitico,details=True,csv=False,editable=True,deletable=True)
     return dict(grid=grid)
  
 

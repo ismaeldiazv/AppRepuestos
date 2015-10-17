@@ -9,6 +9,11 @@ def Potenciometros():
 
     grid2 = SQLFORM.grid(db.Potenciometro,details=True,csv=False,editable=True,deletable=True)
     return dict(grid2=grid2)
+
+def Trimmers():
+
+    grid3 = SQLFORM.grid(db.Trimmer,details=True,csv=False,editable=True,deletable=True)
+    return dict(grid3=grid3)
  
 
 def user():

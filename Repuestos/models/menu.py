@@ -35,11 +35,22 @@ response.menu = [
     [
 		('Fijas', False, URL('Resistencias','Resistencias'), []),
 		('Potenciómetros', False, URL('Resistencias','Potenciometros'), []),
+		('Trimmers', False, URL('Resistencias','Trimmers'), []),
     ]),
     
     ('Transistores', False, URL('Transistores','Transistores'), []),
-    #~ ('C. Integrados', False, URL('Integrados','Integrados'), []),
-    #~ ('Cristales Cuarzo', False, URL('Cristales','Cristales'), []),
+    ('C. Integrados', False, URL('C_Integrados','C_Integrados'), []),
+    ('Cristales Cuarzo', False, URL('Cristales','Cristales'), []),
+    ('Diodos', False, URL(), 
+    [
+        ('Rectificadores', False, URL('Diodos','Rectificadores'), []),
+        ('Puentes Rectificadores', False, URL('Diodos','Puentes'), []),
+        ('Zener', False, URL('Diodos','Zeners'), []),
+    ]),
+    ('Bobinas', False, URL('Bobinas','Bobinas'), []),
+    ('Triacs', False, URL('Triacs','Triacs'), []),
+    ('Diacs', False, URL('Diacs','Diacs'), []),
+    ('Fusibles', False, URL('Fusibles','Fusibles'), []),
 ]
 
 DEVELOPMENT_MENU = True
@@ -57,4 +68,4 @@ def _():
    
 if DEVELOPMENT_MENU: _()
 
-if "auth" in locals(): auth.wikimenu() 
+if "auth" in locals(): auth.wikimenu()
